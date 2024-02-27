@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="cart-container">
+    <div class="products-section">
+      <h2>Your Cart</h2>
+      <div *ngIf="cartItems.length > 0; else emptyCart">
+        <ul class="cart-items">
+          <li *ngFor="let item of cartItems">
+            <div class="cart-item">
+              <input type="checkbox" [id]="'item-' + item.id" />
+              <label [for]="'item-' + item.id" class="custom-checkbox"></label>
+              <div class="item-details">
+                <div class="product-image">
+                  <img [src]="'//192.168.68.109:8080/getPhoto/' + item.imageUrl" alt="{{ item.name }}" />
+                </div>
+                <div class="product-info">
+                  <h3>{{ item.name }}</h3>
+                  <p class="price">Price: ${{ item.price }}</p>
+                  <p class="quantity">Quantity: {{ item.quantity }}</p>
+                  <button mat-icon-button (click)="removeItem(item)">
+                    <mat-icon>delete_outline</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <ng-template #emptyCart>
+        <p>Your cart is empty</p>
+      </ng-template>
+    </div>
+  
+    <div class="checkout-section">
+      <h2>Checkout</h2>
+      <div *ngIf="cartItems.length > 0">
+        <div class="cart-summary">
+          <p>Total Items: {{ getTotalItems() }}</p>
+          <p>Total Price: ${{ getTotalPrice() }}</p>
+          <button (click)="checkout()">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

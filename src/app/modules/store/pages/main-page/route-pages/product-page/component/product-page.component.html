@@ -1,0 +1,56 @@
+<div class="product-container" *ngIf="product">
+  <div class="product-images">
+    <div class="thumbnail-images">
+      <img
+      src="{{'//192.168.68.109:8080/getPhoto/' + product.photo}}"
+      alt="Product Image"
+      class="thumbnail"
+      (mouseenter)="setId(product.photo)">
+
+      <img
+        *ngFor="let image of product.additionalImages"
+        src="{{'//192.168.68.109:8080/getPhoto/' + image}}"
+        alt="Product Image 1"
+        class="thumbnail"
+        (mouseenter)="setId(image)">
+    </div>
+    <img
+      src="{{'//192.168.68.109:8080/getPhoto/' + photo_id_product}}"
+      alt="Product Image"
+      class="large-image"
+      width="457.2"
+      height="606.6">
+  </div>
+  
+  <div class="product-details">
+    <h1 class="product-name">{{product.name}}</h1>
+    <span class="product-price">
+      <span class="product-currency">{{product.currency}}</span>
+      <span class="product-price-number">{{product.price}}</span>
+    </span>
+    <span class="product-discount">
+      <span>{{product.currency}}</span>
+      <span>{{product.discount}}</span>
+    </span>
+    <p class="product-description">
+      <span class="product-description-text">
+        Description:
+      </span>
+      {{product.description}}
+    </p>
+    <button
+      class="add-to-cart-btn"
+      (click)="addToCart(product.id, 5)">
+      Add to Cart
+    </button>
+  </div>
+</div>
+
+
+<!-- <img
+  src="{{'//192.168.68.109:8080/getPhoto/' + product?.photo}}"
+  alt="Product Image">
+<img
+*ngFor="let image of product?.additionalImages"
+  src="{{'//192.168.68.109:8080/getPhoto/' + image}}"
+  alt="Product Image 1"> -->

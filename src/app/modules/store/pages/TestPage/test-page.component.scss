@@ -1,0 +1,58 @@
+/* CSS Styling */
+.product-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.product-image {
+  flex: 1;
+  max-width: 50%;
+  text-align: center;
+  padding: 20px;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.product-details {
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+}
+
+.product-name {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 1.5em;
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+
+.product-description {
+  margin-bottom: 20px;
+}
+
+.add-to-cart-btn {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #e55b00;
+}

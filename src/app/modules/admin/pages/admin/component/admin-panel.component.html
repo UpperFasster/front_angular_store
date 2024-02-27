@@ -1,0 +1,110 @@
+<br>
+<a mat-stroked-button routerLink="" style="text-decoration: none;">
+  TO MAIN MENU
+</a>
+
+<a mat-stroked-button routerLink="/admin/test" style="text-decoration: none;">
+  TO TEST
+</a>
+
+<div class="container">
+  <hr>
+  <br>
+  <!-- <button
+    mat-raised-button
+    color="primary"
+    (click)="backendService.getLogin()">Get login</button>
+  <span>Your id: "{{backendService.user_id}}"</span> -->
+  
+  <h1>Admin Panel</h1>
+  <div style="text-align: center;">
+    <button
+      mat-icon-button
+      color="primary"
+      (click)="refresh()">
+      <mat-icon>sync</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      color="primary"
+      (click)="newProduct()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-icon-button [disabled]="currentPage === 1" (click)="plus(-1)">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button [disabled]="currentPage === getComparePage()" mat-icon-button (click)="plus(1)">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <mat-form-field appearance="outline" class="custom-mat-select">
+      <mat-select [(value)]="pageSize" (selectionChange)="fixPagination()">
+        <mat-option value="5">5</mat-option>
+        <mat-option value="10">10</mat-option>
+        <mat-option value="20">20</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <table matSort (matSortChange)="sortData($event)" style="overflow: auto;">
+    <thead>
+      <tr>
+        <th>
+          <ng-container *ngIf="sortedData && selectedItems.size === sortedData.length  && sortedData.length > 0;">
+            <button (click)="deleteAllItemsFromSelectedItems()" mat-icon-button>
+              <mat-icon>check_box</mat-icon>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="selectedItems.size !== sortedData?.length && sortedData;">
+            <button (click)="addAllItemsToSelectedItems()" mat-icon-button>
+              <mat-icon>check_box_outline_blank</mat-icon>
+            </button>
+          </ng-container>
+        </th>
+        <th style="width: 1px;">№</th>
+        <!-- <th>Photo</th> -->
+        <th mat-sort-header="name">Name</th>
+        <th style="width: 1px;" mat-sort-header="price">Price</th>
+        <th style="width: 1px;" mat-sort-header="discount">With discount</th>
+        <!-- <th>photo</th> -->
+        <th style="width: 1px;">Action</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="sortedData">
+      <tr *ngFor="let item of sortedData | slice: (currentPage - 1) * pageSize : currentPage * pageSize; let i = index">
+        <td style="width: 60px;">
+          <ng-container *ngIf="selectedItems.has(item)">
+            <button (click)="selectedItems.delete(item)" mat-icon-button>
+              <mat-icon>check_box</mat-icon>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="!selectedItems.has(item)">
+            <button (click)="selectedItems.add(item)" mat-icon-button>
+              <mat-icon>check_box_outline_blank</mat-icon>
+            </button>
+          </ng-container>
+        </td>
+        <td>{{ getDisplayedIndex(i) }}</td>
+        <!-- <td>
+          <a href="{{ '//192.168.68.109:8080/getPhoto/' + item.photo}}">
+            <img src="{{ 'http://192.168.68.109:8080/getPhoto/' + item.photo}}" alt="Product Image" width="20%" height="20%">
+          </a>
+        </td> -->
+        <td>{{ item.name }}</td>
+        <td>{{ item.currency + item.price }}</td>
+        <td>{{ item.currency + item.discount }}</td>
+        <td>
+          <button style="color: black;" mat-icon-button (click)="deleteItem(item.id, i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button style="color: #6586e6;" mat-icon-button (click)="editProduct(item)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button style="color: #f25278;" mat-icon-button (click)="likeItem(item.id)">
+            <mat-icon>favorite_border</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    
+    
+  </table>
+</div>

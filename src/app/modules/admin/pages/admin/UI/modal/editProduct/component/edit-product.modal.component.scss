@@ -1,0 +1,116 @@
+.custom-dialog-content {
+  width: auto;
+  padding: 20px;
+
+  .form-columns {
+    display: flex;
+    gap: 40px;
+    padding: 10px;
+  }
+
+  .custom-form {
+    display: flex;
+    flex-direction: column;
+    // border: 1px solid red;
+    width: 600px;
+
+    .form-section {
+      text-align: left;
+
+      .form-group {
+        margin-bottom: 15px;
+
+        .group-one-line {
+          display: flex;
+          flex-direction: row;
+
+          .left-side-one-line {
+            flex: 1;
+            margin-right: 20px;
+          }
+
+          .right-side-one-line {
+            width: 90px;
+          }
+        }
+
+        .input-label {
+          font-size: 17px;
+          font-weight: 500;
+          color: black;
+          user-select: none;
+        }
+
+        input[type='text'],
+        input[type='number'],
+        textarea,
+        select {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 0.9em;
+          appearance: textfield;
+          -moz-appearance: textfield;
+          -webkit-appearance: textfield;
+          margin-top: 6px;
+          background-color: white;
+        }
+
+        textarea {
+          height: 150px;
+          resize: none;
+        }
+      }
+    }
+  }
+
+  .image-upload-column {
+
+    .image-upload {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 2px dashed lightgray;
+      margin: 6px 0;
+      border-radius: 6px;
+      padding: 5px;
+      transition: 0.4s;  
+    }
+
+    .image-upload:hover {
+      border: 2px dashed red;
+    }
+  }
+}
+
+.section-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.image-show {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 337px;
+  // height: 340px;
+  overflow-y: auto;
+  // border: 1px solid red;
+
+  .group-additional-images {
+    display: flex;
+    flex-direction: column;
+    height: 230px;
+
+    img {
+      margin-right: 10px;
+    }
+  } 
+}
+
+.required::after {
+  content: ' *';
+  color: red;
+}

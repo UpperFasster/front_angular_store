@@ -1,0 +1,80 @@
+<div class="auth-container">
+  <form class="auth-form">
+    <h2>Create new account</h2>
+    <div class="form-group">
+      <label for="fullName">Full Name:</label>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        [formControl]="registrationForm.fullName"
+        required>
+      <div 
+        *ngIf="registrationForm.fullName.touched" 
+        class="error-msg">
+        <div *ngIf="registrationForm.fullName.hasError('required')">
+          <i class="bi bi-exclamation-circle-fill">
+            This field is required
+         </i>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [formControl]="registrationForm.email">
+      <div 
+        *ngIf="registrationForm.email.touched" 
+        class="error-msg">
+        <div *ngIf="registrationForm.email.hasError('required')">
+          <i class="bi bi-exclamation-circle-fill">
+             Email is required
+          </i>
+        </div>
+        <div *ngIf="registrationForm.email.hasError('email')">
+          <i class="bi bi-exclamation-circle-fill">
+             Invalid email
+          </i>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [formControl]="registrationForm.password">
+      <div 
+        *ngIf="registrationForm.password.touched" 
+        class="error-msg">
+        <div *ngIf="registrationForm.password.hasError('required')">
+          <i class="bi bi-exclamation-circle-fill">
+             Password is required
+          </i>
+        </div>
+        <div *ngIf="registrationForm.password.hasError('minlength')">
+          <i class="bi bi-exclamation-circle-fill">
+             Password should be at least 8 characters
+          </i>
+        </div>
+      </div>
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!registrationForm.isValid()"
+      (click)="register()"
+      type="button">Create account</button>
+    <div class="login-link">
+      <p>Already have an account? <a (click)="redirectToLogin()">Login</a></p>
+    </div>
+    
+    <div *ngIf="registration_error" class="error-msg">
+      <p>Incorrect login or password!</p>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+  <h2 mat-dialog-title class="mat-title">Delete Item?</h2>
+  <div mat-dialog-content>
+    <p class="mat-text">Are you sure delete this item?</p>
+  </div>
+  <div mat-dialog-actions class="mat-actions">
+    <button mat-button color="primary" (click)="onCancelClick()" class="mat-cancel-button">No</button>
+    <button mat-raised-button color="warn" (click)="onConfirmClick()" class="mat-delete-button">Yes</button>
+  </div>
+</div>

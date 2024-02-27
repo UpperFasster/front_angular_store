@@ -1,0 +1,49 @@
+<main class="main_container">
+  <div class="products-container">
+  
+    <ng-container *ngIf="products.length > 0; else noProducts">
+      <div class="product" *ngFor="let i of products">
+        <a style="cursor: pointer;" [routerLink]="['/p', i.id]">
+          <div class="product-image">
+            <img
+              src="{{ '//192.168.68.109:8080/getPhoto/' + i.photo}}"
+              alt="Product Image">
+          </div>
+        </a>
+        <div class="product-details">
+          <a class="product-title" style="cursor: pointer;">{{i.name}}</a>
+          <p class="product-price"> {{i.currency}}{{i.price}} 
+            <span class="original-price">{{i.currency}}{{i.discount}}</span>
+          </p>
+          <!-- <button class="add-to-cart-btn">Some button</button> -->
+          <!-- <button class="add-to-cart-btn">Some button</button> -->
+        </div>
+      </div>
+    </ng-container>
+    
+    <ng-template #noProducts>
+      <section class="product" *ngFor="let i of blankImages">
+        <div>
+          <div class="product-image">
+            <img
+              src="{{'//192.168.68.109:8080/getPhoto/pqpbRoO.jpg'}}"
+              alt="Blank image">
+          </div>
+        </div>
+        <div class="product-details">
+          <div class="product-title" style="
+            width: 80%;
+            background-color: #e5e5e5;
+            height: 1.6vh;">
+          </div>
+          <p class="product-price"
+            style="width: 50%;
+                  height: 1.7vh;
+                  background-color: #e5e5e5;">
+          </p>
+        </div>
+      </section>
+    </ng-template>
+    
+  </div>
+</main>

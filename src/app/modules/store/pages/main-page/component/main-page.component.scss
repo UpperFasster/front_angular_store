@@ -1,0 +1,120 @@
+.header {
+  background-color: #24292e;
+  color: #fff;
+  padding: 10px 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+
+    // logo
+    .logo {
+      img {
+        height: 40px;
+      }
+    }
+
+
+    //search
+    .search {
+      display: flex;
+      align-items: center;
+  
+      input[type="text"] {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+        font-size: 1em;
+        width: 250px;
+      }
+  
+      .search-btn {
+        padding: 8px 15px;
+        background-color: #fff;
+        color: #24292e;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+  
+
+    //acount info
+    .account-info {
+      
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 17px;
+        margin-right: 10px;
+  
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+  
+      .divider {
+        color: #fff;
+        margin: 0 5px;
+      }
+    }
+  }
+}  
+  
+// header ^^^ ============
+
+
+
+
+// footer vvv ============
+.footer {
+  background-color: #24292e;
+  color: #fff;
+  padding: 40px 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+
+    .footer-logo img {
+      height: 40px; /* Adjust size according to the SHEIN logo */
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 20px;
+        font-size: 0.9em;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

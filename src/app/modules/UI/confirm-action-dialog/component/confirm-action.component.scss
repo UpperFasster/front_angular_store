@@ -1,0 +1,28 @@
+.container {
+  padding: 4px;
+}
+
+.mat-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.mat-text {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.mat-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mat-cancel-button {
+  margin-right: 10px;
+}
+
+.mat-delete-button {
+  min-width: 80px;
+}

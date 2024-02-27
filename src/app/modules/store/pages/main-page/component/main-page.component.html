@@ -1,0 +1,55 @@
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a routerLink="/">
+          <img src="https://static1.squarespace.com/static/58de96f91e5b6ce8febfe51a/t/58e147fd86e6c029f7cb866a/1491159050614/Clay-Word-Mark-2.png?format=1500w" alt="CLAY">
+        </a>
+      </div>
+      <div class="search">
+        <input type="text" placeholder="Search for products...">
+        <button class="search-btn"><i class="bi bi-search"></i></button>
+      </div>
+      <div class="account-info">
+        <a routerLink="/admin/products">
+          <i class="bi bi-bag-plus"></i>
+        </a>
+        <a routerLink="/auth">
+          <i class="bi bi-person-circle"></i>
+        </a>
+        <!-- <a href="#">Sign In</a> -->
+        <a routerLink="/cart">
+          <i class="bi bi-bag"></i>
+          {{cartItems.size}}
+        </a>
+        <a >
+          <i class="bi bi-globe-americas"></i>
+          {{lang}}
+        </a>
+        <!-- Add more account-related links or icons here -->
+      </div>
+    </div>
+  </header>
+
+  <router-outlet></router-outlet>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <!-- <div class="footer-logo">
+          <img src="" alt="CLAY">
+        </div> -->
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Contact Us</a>
+          <a href="#">FAQ</a>
+          <a href="#">Privacy Policy</a>
+          <!-- Add more footer links -->
+        </div>
+        <div class="social-icons">
+          <!-- Add social icons or links here -->
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>

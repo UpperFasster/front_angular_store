@@ -1,0 +1,87 @@
+
+
+// prodcuts vvv
+
+.main_container {
+  max-width: 1446px;
+  margin: 0 auto;
+
+  .products-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    padding: 2% 48px;
+
+    .product {
+      overflow: hidden;
+      background-color: #fff;
+      width: calc(20% - 8px);
+      margin: 0 4px 16px;
+      
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    
+      .product-image {
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    
+      .product-details {
+        min-height: 24px;
+        width: 100%;
+
+        .product-title {
+          font-size: 12px;
+          // margin-bottom: 5px;
+          margin: 5px 0;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          width: 100%;
+        }
+
+        .product-title:hover {
+          color: #fa6338;
+        }
+
+        .product-price {
+          font-size: 12px;
+          line-height: 14px;
+          margin-bottom: 8px;
+          color: #fa6338;
+
+          .original-price {
+            color: #999;
+            text-decoration: line-through;
+          }
+        }
+        
+        .add-to-cart-btn {
+          padding: 8px 15px;
+          background-color: #ff4d4d;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        
+        .add-to-cart-btn:hover {
+          background-color: #ff3333;
+        }
+      }
+    }
+  }
+}
+
+// products ^^^
+
+

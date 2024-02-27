@@ -1,0 +1,46 @@
+<div class="auth-container">
+  <form class="auth-form">
+    <h2>Log into your account</h2>
+    <div class="form-group">
+      <mat-form-field style="width: 100%;">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="loginForm.email" placeholder="email@example.com">
+        <mat-error *ngIf="loginForm.email.hasError('email') && !loginForm.email.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="loginForm.email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field style="width: 100%;">
+        <mat-label>Password</mat-label>
+        <input
+          [type]="hide ? 'password' : 'text'"
+          minlength="8"
+          matInput
+          [formControl]="loginForm.password"
+          style="border: 0 solid rgba(0,0,0,0);">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="loginForm.password.hasError('minlength')">
+          Min lenght of passwrod is 8
+        </mat-error>
+        <mat-error *ngIf="loginForm.password.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!loginForm.isValid()"
+      (click)="login()"
+      type="button">Login</button>
+    
+    <div class="signup-link">
+      <p>Don't have an account? <a (click)="redirectToSignUp()">Sign Up</a></p>
+    </div>
+
+  </form>
+</div>

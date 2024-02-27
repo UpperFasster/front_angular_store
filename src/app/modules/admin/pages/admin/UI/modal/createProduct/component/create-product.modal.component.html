@@ -1,0 +1,106 @@
+<section class="custom-dialog-content">
+  <div class="form-columns">
+
+    <form class="custom-form" [formGroup]="form">
+      <div class="form-section">
+        <h2 class="section-title">Create new product</h2>
+        <div class="form-group">
+          <label for="productName" class="input-label required">Product Name</label>
+          <input type="text" id="productName" name="productName" placeholder="Product Name" required formControlName="name">
+        </div>
+        <div class="form-group">
+          <label for="price" class="input-label required">Price</label>
+          <input type="number" id="price" name="price" placeholder="5" required formControlName="price">
+        </div>
+        <div class="form-group">
+          <div class="group-one-line">
+            <div class="left-side-one-line">
+              <label for="discount" class="input-label">Discount</label>
+              <input type="number" id="discount" name="discount" placeholder="less then price" formControlName="discount">
+            </div>
+            <div class="right-side-one-line">
+              <label for="currency" class="input-label required">Currency</label>
+              <select id="currency" formControlName="currency">
+                <option value="с" selected>KGS</option>
+                <option value="$">USD</option>
+              </select>
+              <!-- <input type="text" id="currency" name="currency" placeholder="$" formControlName="currency"> -->
+            </div>
+          </div>
+          </div>
+        <div class="form-group">
+          <label for="quantity" class="input-label required">Quantity</label>
+          <input type="number" id="quantity" name="quantity" placeholder="Quantity" formControlName="quantity">
+        </div>
+        <div class="form-group">
+          <label for="description" class="input-label required">Description</label>
+          <textarea id="description" name="description" placeholder="Description" formControlName="description" maxlength="255"></textarea>
+          <span style="font-size: 12px;">
+            {{form.get("description")?.value.length}}/255
+          </span>
+        </div>
+        
+      </div>
+    </form>
+
+
+    <section class="image-upload-column">
+      <div class="image-upload" *ngIf="!mainPhoto; else ImageShown">
+        <label for="mainImageInput" class="custom-file-upload required">
+          <mat-icon>add_a_photo</mat-icon>
+          Upload Main Image
+        </label>
+        <input
+          type="file"
+          id="mainImageInput"
+          accept="image/*"
+          (change)="fileSelected($event)"
+          style="display: none">
+      </div>
+      <ng-template #ImageShown>
+        <div class="image-show">
+          <img
+          [src]="mainPhoto?.url"
+          height="168.5"
+          width="122.5">
+          <button mat-icon-button (click)="deleteMainPhoto()">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </ng-template>
+      
+  
+      <div class="image-upload" *ngIf="otherPhotos.length < 5">
+        <label for="additionalImagesInput" class="custom-file-upload">
+          <mat-icon>add_a_photo</mat-icon>
+          Upload Additional Images
+        </label>
+        <input
+          type="file"
+          id="additionalImagesInput"
+          multiple
+          accept="image/*"
+          style="display: none"
+          (change)="onOtherPhotosSelected($event)">
+      </div>
+
+      <div class="image-show" *ngIf="otherPhotos">
+        <div
+          *ngFor="let images of otherPhotos; let i = index;"
+          class="group-additional-images">
+          <img
+            height="168.5"
+            width="122.5"
+            [src]="images.url"
+            [alt]="i">
+          <button
+            mat-raised-button
+            (click)="deleteOtherPhoto(i)">Delete {{ i + 1}}
+          </button>
+        </div>
+      </div>
+
+    </section>
+  </div>
+  <button mat-raised-button (click)="onSubmit()">Send</button>
+</section>
